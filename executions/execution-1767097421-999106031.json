@@ -1,0 +1,27 @@
+{
+  "executed_at": "2025-12-30T13:14:01.585Z",
+  "intent_file": "intents/intent-1767097421-999106031.json",
+  "tx_hash": "0x7316878b5a2389cbc1d5ac81ad95df49a2ac0ca8dce40d710a0b18521948b400",
+  "blockNumber": 19053440,
+  "chain_id": "0x4cef52",
+  "anchor": {
+    "to": "0x1b12948DEb4405324546F4c6eE90f2aF178505bd",
+    "value": "0",
+    "data": "0x36429e1352fa3e6f602e518ac6cfcf7b3cb520c62dc242605922aa613eeeba4b"
+  },
+  "verification": {
+    "recovered_signer": "0x1b12948DEb4405324546F4c6eE90f2aF178505bd",
+    "digest_recomputed": "0x36429e1352fa3e6f602e518ac6cfcf7b3cb520c62dc242605922aa613eeeba4b",
+    "digest_matches_file": true,
+    "signer_matches_agent": true
+  },
+  "summary": {
+    "action": "ALLOCATE",
+    "amount_usdc": 180,
+    "min_usdc_buffer": 200,
+    "managed_usdc_cap": 500,
+    "max_alloc_pct": 0.6,
+    "timestamp": 1767097421,
+    "nonce": 999106031
+  }
+}

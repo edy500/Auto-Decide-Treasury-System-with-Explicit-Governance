@@ -1,0 +1,81 @@
+{
+  "intent": {
+    "agent_address": "0x1b12948DEb4405324546F4c6eE90f2aF178505bd",
+    "chain_id": "0x4cef52",
+    "action": "ALLOCATE",
+    "amount_usdc": 180,
+    "managed_usdc_cap": 500,
+    "min_usdc_buffer": 200,
+    "max_alloc_pct": 0.6,
+    "observed_balances": {
+      "usdc": 500,
+      "usyc": 0
+    },
+    "observed_inputs": {
+      "revenue": {
+        "daily_usdc_revenue": 320
+      },
+      "usage": {
+        "estimated_daily_cost_usdc": 85
+      }
+    },
+    "timestamp": 1767103998,
+    "nonce": 320407363
+  },
+  "eip712": {
+    "domain": {
+      "name": "ArcAutonomousTreasuryAgent",
+      "version": "1",
+      "chainId": 5042002,
+      "verifyingContract": "0x0000000000000000000000000000000000000000"
+    },
+    "types": {
+      "AllocationIntent": [
+        {
+          "name": "agent",
+          "type": "address"
+        },
+        {
+          "name": "action",
+          "type": "string"
+        },
+        {
+          "name": "amountUsdc",
+          "type": "string"
+        },
+        {
+          "name": "managedCapUsdc",
+          "type": "string"
+        },
+        {
+          "name": "minBufferUsdc",
+          "type": "string"
+        },
+        {
+          "name": "maxAllocPct",
+          "type": "string"
+        },
+        {
+          "name": "timestamp",
+          "type": "uint256"
+        },
+        {
+          "name": "nonce",
+          "type": "uint256"
+        }
+      ]
+    },
+    "value": {
+      "agent": "0x1b12948DEb4405324546F4c6eE90f2aF178505bd",
+      "action": "ALLOCATE",
+      "amountUsdc": "180",
+      "managedCapUsdc": "500",
+      "minBufferUsdc": "200",
+      "maxAllocPct": "0.6",
+      "timestamp": 1767103998,
+      "nonce": 320407363
+    },
+    "digest": "0xb64960730f89a5f7da343956b4e32b25b4953fd6a142db1c2af86670225b99ec",
+    "signature": "0xc569731212ad4f79ec0c394e4d6175d47c084cc4d4c5857a1316957d8db4a7fb71ea3ad97b6cc0750862f10af0daf11f5c7c8922d304facc993d87a7089360021b"
+  }
+}

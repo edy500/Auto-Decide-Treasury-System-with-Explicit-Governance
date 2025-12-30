@@ -1,0 +1,16 @@
+{
+  "ts": 1767104007,
+  "intent_file": "intents\\intent-1767103998-320407363.json",
+  "digest": "0xb64960730f89a5f7da343956b4e32b25b4953fd6a142db1c2af86670225b99ec",
+  "action": "ALLOCATE",
+  "anchor": {
+    "tx": "0x2247840e43daafb7e7f2f3bfb5da3efe06adc365198a2154883a2b8fb8d98a3f",
+    "block": 19060559
+  },
+  "usyc_proof": {
+    "token": "0xe9185f0c5f296ed1797aae4238d26ccabeadb86c",
+    "tx": "0x3b220981772bf7a6bfc56dba83698fc03104c62eafe9b69b5c2ad0550b05507c",
+    "block": 19060563,
+    "note": "USYC self-transfer 1 unit"
+  }
+}
