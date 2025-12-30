@@ -1,0 +1,49 @@
+# Env / Secrets
+.env
+.env.*
+*.key
+*.pem
+*.secret
+secrets/
+keys/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build
+dist/
+build/
+
+# Local / OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Wallet / Blockchain
+*.wallet
+*.keystore
+*.json.enc
+
+# Agent artifacts (signed intents & runs)
+intents/
+runs/
+executions/
+
+# Local databases / caches
+.cache/
+.tmp/
+tmp/
+
+# Frontend envs
+web/.env
+web/.env.*
+
