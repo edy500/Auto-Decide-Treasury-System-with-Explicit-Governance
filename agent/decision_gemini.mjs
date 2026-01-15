@@ -14,9 +14,7 @@ export async function decideWithGemini(context) {
   if (!apiKey) throw new Error("Missing GEMINI_API_KEY in .env");
 
   const genAI = new GoogleGenerativeAI(apiKey);
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-
-
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const prompt = `
 You are an autonomous treasury & billing agent operating with USDC and USYC.
@@ -46,9 +44,16 @@ Context:
 ${JSON.stringify(context, null, 2)}
 `;
 
-  const result = await model.generateContent(prompt);
-  const text = result.response.text();
+  // ✅ opcional: limite de tokens aqui também
+  const result = await model.generateContent({
+    contents: [{ role: "user", parts: [{ text: prompt }] }],
+    generationConfig: {
+      temperature: 0.2,
+      maxOutputTokens: 220, // decisão pode precisar um pouco mais que 120
+    },
+  });
 
+  const text = result.response.text();
   const decision = safeJsonParse(text);
 
   // validação mínima
@@ -62,4 +67,45 @@ ${JSON.stringify(context, null, 2)}
   }
 
   return decision;
+}
+
+export async function geminiJustifyPolicy({
+  available_usdc,
+  min_buffer,
+  max_alloc_pct,
+  intent_amount
+}) {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) throw new Error("Missing GEMINI_API_KEY in .env");
+
+  const genAI = new GoogleGenerativeAI(apiKey);
+
+  // ✅ modelo barato/rápido
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
+
+  const prompt =
+`Return STRICT JSON only:
+{"headline":string,"reason":string,"risk_note":string}
+
+Context:
+available_usdc=${available_usdc}
+min_buffer=${min_buffer}
+max_alloc_pct=${max_alloc_pct}
+intent_amount=${intent_amount}
+
+Rules:
+- headline <= 8 words
+- reason <= 22 words
+- risk_note <= 14 words`;
+
+  const result = await model.generateContent({
+    contents: [{ role: "user", parts: [{ text: prompt }] }],
+    generationConfig: {
+      temperature: 0.2,
+      maxOutputTokens: 120, // ✅ limite aqui
+    },
+  });
+
+  const text = result.response.text().trim();
+  return safeJsonParse(text); // ✅ reutiliza seu parser
 }

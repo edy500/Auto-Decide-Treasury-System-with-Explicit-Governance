@@ -47,3 +47,13 @@ tmp/
 web/.env
 web/.env.*
 
+# Backup / temp
+*.bak
+*.swp
+
+# Wallet phrases / local db
+*.mnemonic
+*.seed
+*.privatekey
+*.sqlite
+*.db
